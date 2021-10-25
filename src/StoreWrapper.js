@@ -3,6 +3,8 @@ import { Route, Switch, BrowserRouter } from "react-router-dom";
 import Contact from "./components/Contact/Contact";
 import ContactsCreator from "./components/ContactsCreator/ContactsCreator";
 import ContactsContainer from "./components/ContactsContainer/ContactsContainer";
+import CssBaseline from "@mui/material/CssBaseline";
+import Container from "@mui/material/Container";
 
 export const Context = React.createContext(null);
 
@@ -54,18 +56,23 @@ export default function StoreWrapper() {
   });
 
   return (
-    <Context.Provider value={state}>
-      <BrowserRouter>
-        <Switch>
-          <Route exact path={"/"} component={ContactsContainer}></Route>
-          <Route exact path={"/contact"} component={Contact}></Route>
-          <Route
-            exact
-            path={"/contactsCreator"}
-            component={ContactsCreator}
-          ></Route>
-        </Switch>
-      </BrowserRouter>
-    </Context.Provider>
+    <React.Fragment>
+      <CssBaseline />
+      <Container maxWidth="sm">
+        <Context.Provider value={state}>
+          <BrowserRouter>
+            <Switch>
+              <Route exact path={"/"} component={ContactsContainer}></Route>
+              <Route exact path={"/contact"} component={Contact}></Route>
+              <Route
+                exact
+                path={"/contactsCreator"}
+                component={ContactsCreator}
+              ></Route>
+            </Switch>
+          </BrowserRouter>
+        </Context.Provider>
+      </Container>
+    </React.Fragment>
   );
 }
