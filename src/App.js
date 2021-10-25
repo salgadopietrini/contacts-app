@@ -35,14 +35,24 @@ export default function App() {
           actions: { ...prevValue.actions },
         }));
       },
+      handleEdit: (user, id) => {
+        setState((prevValue) => ({
+          store: {
+            ...prevValue.store,
+            contacts: prevValue.store.contacts.map((elem, index) => {
+              if (id === index) {
+                return user;
+              } else {
+                return elem;
+              }
+            }),
+          },
+          actions: { ...prevValue.actions },
+        }));
+      },
     },
   });
 
-  /*
-  const handleEdit = (key) => {
-    setContacts();
-  };
- */
   return (
     <Context.Provider value={state}>
       <BrowserRouter>
