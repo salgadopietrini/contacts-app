@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import ContactsPreview from "../ContactsPreview/ContactsPreview";
 import { Link } from "react-router-dom";
-import { Context } from "../../App";
+import { Context } from "../../StoreWrapper";
 
 export default function ContactsContainer() {
   const { store } = useContext(Context);

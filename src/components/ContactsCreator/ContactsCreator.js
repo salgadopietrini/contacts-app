@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 
-import { Context } from "../../App";
+import { Context } from "../../StoreWrapper";
 
 export default function ContactsCreator(props) {
   const [userInfo, setUserInfo] = useState({});
