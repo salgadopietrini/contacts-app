@@ -19,13 +19,26 @@ export default function App() {
           actions: { ...prevValue.actions },
         }));
       },
+      handleRemove: (id) => {
+        setState((prevValue) => ({
+          store: {
+            ...prevValue.store,
+            contacts: prevValue.store.contacts
+              .slice(0, id)
+              .concat(
+                prevValue.store.contacts.slice(
+                  id + 1,
+                  prevValue.store.contacts.length
+                )
+              ),
+          },
+          actions: { ...prevValue.actions },
+        }));
+      },
     },
   });
 
-  /*   const handleRemove = (key) => {
-    setContacts();
-  };
-
+  /*
   const handleEdit = (key) => {
     setContacts();
   };

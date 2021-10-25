@@ -13,6 +13,7 @@ export default function ContactsContainer() {
           <ContactsPreview
             info={elem}
             key={Math.floor(Math.random() * 1000000)}
+            id={index}
           />
         ))
       ) : (
