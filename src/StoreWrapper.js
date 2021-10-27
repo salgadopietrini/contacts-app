@@ -9,7 +9,31 @@ import Container from "@mui/material/Container";
 export const Context = React.createContext(null);
 
 export default function StoreWrapper() {
-  const [state, setState] = useState({
+  const [contacts, setContacts] = useState([]);
+
+  const handleAdd = (contact) => {
+    setContacts((prevValue) => [...prevValue, contact]);
+  };
+
+  const handleRemove = (id) => {
+    setContacts((prevValue) =>
+      prevValue.slice(0, id).concat(prevValue.slice(id + 1, prevValue.length))
+    );
+  };
+
+  const handleEdit = (user, id) => {
+    setContacts((prevValue) =>
+      prevValue.map((elem, index) => {
+        if (id === index) {
+          return user;
+        } else {
+          return elem;
+        }
+      })
+    );
+  };
+
+  /*   const [state, setState] = useState({
     store: { contacts: [] },
     actions: {
       handleAdd: (contact) => {
@@ -54,12 +78,19 @@ export default function StoreWrapper() {
       },
     },
   });
-
+ */
   return (
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="sm">
-        <Context.Provider value={state}>
+        <Context.Provider
+          value={{
+            contacts: contacts,
+            handleAdd: handleAdd,
+            handleRemove: handleRemove,
+            handleEdit: handleEdit,
+          }}
+        >
           <BrowserRouter>
             <Switch>
               <Route exact path={"/"} component={ContactsContainer}></Route>

@@ -8,7 +8,7 @@ import { Context } from "../../StoreWrapper";
 
 export default function ContactsCreator(props) {
   const [userInfo, setUserInfo] = useState({});
-  const { actions } = useContext(Context);
+  const { handleAdd } = useContext(Context);
 
   const handleName = (event) => {
     setUserInfo((prevValue) => ({
@@ -30,7 +30,7 @@ export default function ContactsCreator(props) {
   };
 
   const add = (event) => {
-    actions.handleAdd(userInfo);
+    handleAdd(userInfo);
   };
 
   return (

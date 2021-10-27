@@ -7,7 +7,7 @@ import Box from "@mui/material/Box";
 import { Context } from "../../StoreWrapper";
 
 export default function Contact(props) {
-  const { actions } = useContext(Context);
+  const { handleEdit, handleRemove } = useContext(Context);
   const { name, phone, email } = props.location.state.info;
   const { id } = props.location.state;
   const [user, setUser] = useState({
@@ -17,11 +17,11 @@ export default function Contact(props) {
   });
 
   const handleReplace = () => {
-    actions.handleEdit(user, id);
+    handleEdit(user, id);
   };
 
   const handleDelete = () => {
-    actions.handleRemove(id);
+    handleRemove(id);
   };
 
   const handleName = (event) => {

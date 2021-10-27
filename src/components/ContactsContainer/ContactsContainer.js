@@ -10,11 +10,11 @@ import AddIcon from "@mui/icons-material/Add";
 import Typography from "@mui/material/Typography";
 
 export default function ContactsContainer() {
-  const { store } = useContext(Context);
+  const { contacts } = useContext(Context);
 
   return (
     <Box sx={{ "& > :not(style)": { m: 1 } }}>
-      {store.contacts.length > 0 ? (
+      {contacts.length > 0 ? (
         <>
           <Typography variant="h5" component="div" gutterBottom>
             My contacts
@@ -22,7 +22,7 @@ export default function ContactsContainer() {
           <List
             sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
           >
-            {store.contacts.map((elem, index) => (
+            {contacts.map((elem, index) => (
               <ContactsPreview
                 info={elem}
                 key={Math.floor(Math.random() * 1000000)}
