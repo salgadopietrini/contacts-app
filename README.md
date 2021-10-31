@@ -1,6 +1,7 @@
 # contacts-app is an app to create, save, edit and delete contacts information, created using React.
 
 It implements a global state to manage the data using Context, in order to be able to maintain the information even when navigating through different pages with ReactRoute.
+It uses Material UI for all the stylings.
 
 
 ![alt text](https://i.ibb.co/vqKkgXZ/contacts-app-LG.png)
